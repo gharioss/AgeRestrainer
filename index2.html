@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>What Age Are you</title>
+
+	<script type="text/javascript">
+		function whatageareyou() {
+			let x = document.getElementById("start").value
+			var myBirthday = new Date(x)
+			var currentDate = new Date().toJSON().slice(0,10) + '01:00:00'
+			var myAge = ~~((Date.now(currentDate) - myBirthday) / (31557600000));
+			if (myAge >= 18) {
+				window.alert("Welcome to our +18 only site !")
+				document.getElementById("areyou18").textContent = "Welcome to our +18 only site !"
+			} else {
+				window.alert("Denied, grow a bit more.")
+				document.getElementById("areyou18").textContent = "Denied, grow a bit more."
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- if (2022 - y[0] >= 18) { -->
+	<label for="start">Start date:</label>
+
+	<input type="date" id="start" name="trip-start"
+	value="2018-07-22"
+	min="1950-01-01" max="2022-11-01">
+
+	<button onclick="whatageareyou()">Are you 18 ?</button>
+	<p id="areyou18"></p>
+</body>
+</html>
+
